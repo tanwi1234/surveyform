@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>survey form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="surveyform.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script type= "text/javascript">
+		$(document).ready(function(){
+			$("#usercheck").hide();
+			$("#emailcheck").hide();
+			$("#agecheck").hide();
+
+			var user_err=true;
+			var email_err=true;
+			var age_err=true;
+			
+			
+			
+			$("#name").keyup(function()
+			{
+				name_check();
+			});
+			$(".send").click(function()
+			{
+				alert("confirm you want to submit the form");
+
+			
+			});
+			function name_check()
+			{
+				var user_name=$("#name").val();
+				if(user_name.length=="")
+				{
+					$("#usercheck").show();
+					$("#usercheck").html("**Please fill username");
+					$("#usercheck").focus();
+					$("#usercheck").css("color","cyan");
+					user_err=false;
+					return false;
+					
+
+				}
+				else
+				{
+					$("#usercheck").hide();
+				}
+				if(user_name.length<3)
+				{
+					$("#usercheck").show();
+					$("#usercheck").html("**Username length must be between 3 and 20");
+					$("#usercheck").focus();
+					$("#usercheck").css("color","cyan");
+					user_err=false;
+					return false;
+					
+
+				}
+				else
+				{
+					$("#usercheck").hide();
+				}
+			}
+			$("#email").keyup(function()
+			{
+				email_check();
+			});
+			function email_check()
+			{
+				var email_add=$("#email").val();
+				if(email_add.length == "")
+				{
+					$("#emailcheck").show();
+					$("#emailcheck").html("**Please fill valid email address");
+					$("#emailcheck").focus();
+					$("#emailcheck").css("color","cyan");
+					email_err=false;
+					return false;
+
+				}
+				else
+				{
+					$("#emailcheck").hide();
+				}
+			}
+			$("#number").keyup(function()
+			{
+				age_check();
+			});
+			function age_check()
+			{
+				var age_add=$("#number").val();
+				if(age_add.length == "")
+				{
+					$("#agecheck").show();
+					$("#agecheck").html("**Age group must be between 5-30yrs");
+					$("#agecheck").focus();
+					$("#agecheck").css("color","cyan");
+					age_err=false;
+					return false;
+
+				}
+				else
+				{
+					$("#agecheck").hide();
+				}
+			}
+			
+    
+});
+	</script>
+
+</head>
+<body>
+	
+<header>
+	
+</header>
+	
+	<main>
+		<section>
+			<h1 id="title"> freeCodeCamp Survey Form </h1>
+			<p id="discription"> Thank you for taking the time to help us improve the platform</p>
+		</section>
+		<section class="part">
+			<div class="survey">
+				<form id="survey-form">
+					<h3 id="first">Name</h3>
+					<input type="text" name="fname" placeholder="Enter your name" id="name"autocomplete="off" required>
+					<h2 id="usercheck"></h2>
+					<h3 id="sec"> Email </h3>
+					<input type="Email" name="ename" placeholder="Enter your email address " id="email"autocomplete="off" required>
+					<h2 id="emailcheck"></h2>
+					<h3 id="third"> Age(optional)</h3>
+					<input type="number" name="aname" min="5" max="30"placeholder="Enter your Age" id="number" autocomplete="off" required>
+					<h2 id="agecheck"></h2>
+					 <h3 id="fourth">Which option best describe your current role?</h3>
+					 <select>
+					<option value="Select current role">Select current role</option>
+					<option value="student">Student</option>
+					<option value="full time job">Full time job</option>
+					<option value="Full time learner"> Full time learner</option>
+					<option value="Prefer not to say"> Prefer not to say</option>
+					<option value="other"> other </option>
+				</select id="dropdown">
+				<h3 id="fifth">Would you recommend freeCodeCamp to a friend?</h3>
+				<div class="check">
+		
+				<input type="radio" name="cname">
+			<label for="cname" id="one"> Definitely</label>
+			</div>
+			<br/>
+			<div class="check2">
+				<input type="radio" name="cname">
+				<label for="cname" id="two"> Maybe</label>
+			</div></br>
+			<div class="check3">
+                <input type="radio" name="cname">
+                <label for="cname" id="three"> Not Sure</label>
+            </div>
+            <h3 id="sixth">What is your favorite feature of freeCodeCamp?</h3>
+
+            <select class="mid" required>
+					<option value="Select an option">Select an option</option>
+					<option value="Challenges">Challenges</option>
+					<option value="Projects">Projects</option>
+					<option value="Community">Community</option>
+					<option value="Open source">Open source</option>
+					
+				</select>
+				<div class="topic">
+				<h3 id="seventh">What would you like to see improved?</h3><span class="hii">(Check all that apply)</span>
+			</div>
+			<div id="checks">
+				<div class="box1">
+				<input type="checkbox" name="fcheck">
+				<label for="fcheck"> Front-end projects</label><br>
+			</div>
+			<div class="box2">
+			
+				<input type="checkbox" name="scheck">
+				<label for="scheck"> Back-end projects</label><br>
+			</div>
+			<div class="box3">
+				<input type="checkbox" name="tcheck">
+				<label for="tcheck"> Data Visualization</label><br>
+			</div>
+			<div class="box4">
+			
+				<input type="checkbox" name="focheck">
+				<label for="focheck"> Challenges</label><br>
+			</div>
+			<div class="box5">
+			
+				<input type="checkbox" name="ficheck">
+				<label for="ficheck">Open source Community</label><br>
+			</div>
+			<div class="box6">
+			
+				<input type="checkbox" name="scheck">
+				<label for="scheck"> Gitter help forms</label><br>
+			</div>
+			<div class="box7">
+			
+				<input type="checkbox" name="secheck">
+				<label for="secheck"> videos</label><br>
+			</div>
+			<div class="box8">
+			
+				<input type="checkbox" name="echeck">
+				<label for="echeck"> City Meetups</label><br>
+			</div>
+			<div class="box9">
+			
+				<input type="checkbox" name="ncheck">
+				<label for="ncheck"> Wiki</label> <br>
+			</div>
+			<div class="box10">
+			
+				<input type="checkbox" name="tcheck">
+				<label for="tcheck"> Forum</label><br>
+			</div>
+			<div class="box11">
+
+				<input type="checkbox" name="echeck">
+				<label for="echeck">Additional courses</label>
+			</div>
+			
+		</div>
+		<h2 id="checkboxes"></h2>
+			<h3 id="eight"> Any comments or Suggestions?</h3>
+			<input type="textarea" name="area" autocomplete="off">
+			<div class="send">
+			<input type="Submit" id="Submit">
+		</div>
+				
+				</form>
+			<
+
+		</section>
+	</main>
+	
+</body>
+</html>
